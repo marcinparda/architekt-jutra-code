@@ -21,7 +21,6 @@ import java.util.Arrays;
 /**
  * Security filter that validates incoming Bearer tokens via RFC 7662 introspection
  * against the backend, then exchanges them for backend-scoped Token-B via RFC 8693.
- * Replaces the old trust-and-forward McpJwtFilter.
  */
 @Slf4j
 public class McpIntrospectionFilter extends OncePerRequestFilter {
