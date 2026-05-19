@@ -33,6 +33,10 @@ echo "Starting MCP app..."
 for dir in plugins/*/; do
   if [ -f "$dir/package.json" ]; then
     name=$(basename "$dir")
+    if [ ! -d "$dir/node_modules" ]; then
+      echo "Installing dependencies: $name"
+      (cd "$dir" && npm install --silent)
+    fi
     echo "Starting plugin: $name"
     (cd "$dir" && npm run dev) &
   fi
